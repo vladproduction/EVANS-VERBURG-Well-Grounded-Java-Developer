@@ -1,0 +1,35 @@
+Builder pattern.
+This is a combination of two constructs: a static inner class that implements a generic builder interface, and a private
+constructor for the immutable class itself.
+The static inner class is the builder for the immutable class, and it provides the
+only way that a developer can get hold of new instances of the immutable type. One
+very common implementation is for the Builder class to have exactly the same fields
+as the immutable class, but to allow mutation of the fields.
+Sometimes it’s just not possible to develop efficiently with only immutable objects,
+because every change to an object’s state requires a new object to be spun up.
+
+Explanation:
+
+Immutable Class (House):
+The House class holds immutable fields (final variables). It has a private constructor that takes a Builder object, which sets the required and optional fields.
+
+Static Inner Builder Class:
+The Builder class has the same fields as the House class, and it provides methods to set optional fields (color, hasGarage).
+The constructor of the Builder class requires the essential fields (rooms, bathrooms).
+
+Method Chaining:
+The builder methods return this, allowing for method chaining, which provides a fluent interface.
+
+Build Method:
+The build() method creates the House object using the parameters set in the Builder.
+
+Getters:
+Getters are provided for accessing the fields of the immutable House object.
+
+Usage:
+In the BuilderPatternDemo, a House is built using the Builder. Required fields are set in the constructor, and optional fields are set using builder methods.
+
+Benefits of the Builder Pattern:
+* Readability: The construction of the object is clearer and more readable.
+* Immutability: The class is immutable, ensuring that its state cannot change after construction.
+* Flexibility: Optional parameters are easily manageable without overloading constructors.

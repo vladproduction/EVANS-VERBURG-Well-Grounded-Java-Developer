@@ -1,0 +1,8 @@
+//description concept provided by code in pack: synchronized_concept
+The memory representation in different threads of the object being locked is what is being synchronized.
+That is, after the synchronized block (or method) has completed, any and all changes that were made to the object being locked
+are flushed back to main memory before the lock is released;
+In addition, when a synchronized block is entered, then after the lock has been acquired,
+any changes to the locked object are read in from main memory,
+so the thread with the lock is synchronized to main memory’s view of the object before
+the code in the locked section begins to execute.
